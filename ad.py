@@ -38,10 +38,10 @@ if __name__ == '__main__':
 # end=datetime.now()
 # print "total request:%s,cost:%s" % (i*100,end-start)
     i=0
-    for line in io.open( "d:/log/registration_log_2014060911.log", encoding='utf-8'):
+    for line in io.open( "d:/log/registration_log_2014060910.log", encoding='utf-8'):
         if (line.find("'gameid': '1'")>0):
             i += 1;
-        print(line)
+            print(line)
     print(i)
         # print(json.loads(line));
 
