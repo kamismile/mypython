@@ -41,6 +41,7 @@ if __name__ == '__main__':
     for line in io.open( "d:/log/registration_log_2014060911.log", encoding='utf-8'):
         if (line.find("'gameid': '1'")>0):
             i += 1;
+        print(line)
     print(i)
         # print(json.loads(line));
 
