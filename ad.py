@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
 import httplib,sys,re,string
+import io
+import json
+
 
 def test(a):
     
@@ -21,17 +24,23 @@ from datetime import datetime,timedelta
 
 if __name__ == '__main__':
 
-    time =100;
-    
-    pool = Pool(processes=30)
-    start = datetime.now()
-    print "start time:%s,run times:%s seconds" % (start,time)
-    
-    tt = start + timedelta(seconds=time)
+# time =100;
+# pool = Pool(processes=10)
+# start = datetime.now()
+# print "start time:%s,run times:%s seconds" % (start,time)
+#
+# tt = start + timedelta(seconds=time)
+# i=0
+# while datetime.now()<tt:
+#     pool.map(test, range(399))
+#     print "no %s (100)" % (i,)
+#     i=i+1;
+# end=datetime.now()
+# print "total request:%s,cost:%s" % (i*100,end-start)
     i=0
-    while datetime.now()<tt:
-        pool.map(test, range(30))
-        print "no %s (100)" % (i,)
-        i=i+1;
-    end=datetime.now()
-    print "total request:%s,cost:%s" % (i*100,end-start)
+    for line in io.open( "d:/log/registration_log_2014060911.log", encoding='utf-8'):
+        if (line.find("'gameid': '1'")>0):
+            i += 1;
+    print(i)
+        # print(json.loads(line));
+
